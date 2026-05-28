@@ -19,5 +19,4 @@ La app puede funcionar en modo demo con los datos locales de `Frontend/data.json
 ## Notas para portafolio
 
 - El flujo de inicio de sesion fue removido de la navegacion publica.
-- No subas `.env`; usa `.env.example` como referencia.
 - `node_modules` queda excluido del repositorio.
