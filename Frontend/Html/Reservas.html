@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Reservas - Rentas</title>
+  <!-- Enlace al archivo CSS -->
+  <link rel="stylesheet" href="/Frontend/Css/reservas.css">
+</head>
+<body>
+  <!-- Botón de retroceso -->
+  <div class="back-button-container">
+    <button id= "back-button" class="back-button"><i class="icon">←</i> Volver</button>
+  </div>
+
+  <!-- Contenedor principal -->
+  <div class="container">
+    <h1>Mis Reservas</h1>
+
+    <!-- Barra de búsqueda y filtros -->
+    <div class="search-filters">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar por nombre o dirección...">
+      </div>
+      <div class="filters">
+        <select id="status-filter">
+          <option value="all">Todos los estatus</option>
+          <option value="pending">Pendiente</option>
+          <option value="confirmed">Confirmada</option>
+          <option value="active">Activa</option>
+          <option value="overdue">Vencida</option>
+          <option value="completed">Finalizada</option>
+        </select>
+        <select id="date-filter">
+          <option value="date-asc">Fecha: Más antiguo</option>
+          <option value="date-desc">Fecha: Más reciente</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Listado de reservas -->
+    <div class="reservation-list">
+      <!-- Ejemplo de reserva pendiente -->
+      <div class="reservation-card status-pending">
+        <div class="card-layout">
+          <img src="https://via.placeholder.com/150x100" alt="Propiedad" class="property-image">
+          <div class="card-content">
+            <div class="property-name">Casa Moderna en Zona Norte</div>
+            <div class="property-address">Zona Norte, Ciudad</div>
+            <div class="reservation-info">Solicitud enviada: 10/10/2023</div>
+            <div class="status">Pendiente</div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="action-button btn-cancel"><i class="icon">❌</i> Cancelar solicitud</button>
+          <button class="action-button btn-chat"><i class="icon">💬</i> Contactar propietario</button>
+        </div>
+      </div>
+
+      <!-- Ejemplo de reserva activa -->
+      <div class="reservation-card status-active">
+        <div class="card-layout">
+          <img src="https://via.placeholder.com/150x100" alt="Propiedad" class="property-image">
+          <div class="card-content">
+            <div class="property-name">Departamento en Centro</div>
+            <div class="property-address">Centro, Ciudad</div>
+            <div class="reservation-info">Contrato: Del 01/01/2024 al 31/12/2024 | Monto mensual: $500</div>
+            <div class="status">Activa</div>
+            <div class="payment-status">
+              <span>Pago de enero: <strong>Pagado</strong></span>
+              <span>Pago de febrero: <strong>Pendiente</strong></span>
+              <span>Próximo pago: 05/02/2024</span>
+            </div>
+          </div>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+            <div class="progress" style="width: 8.33%;"></div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="action-button btn-pay"><i class="icon">💳</i> Pagar ahora</button>
+          <button class="action-button btn-contract"><i class="icon">📄</i> Descargar contrato</button>
+          <button class="action-button btn-cancel"><i class="icon">❌</i> Cancelar contrato</button>
+        </div>
+      </div>
+
+      <!-- Ejemplo de reserva vencida -->
+      <div class="reservation-card status-overdue">
+        <div class="card-layout">
+          <img src="https://via.placeholder.com/150x100" alt="Propiedad" class="property-image">
+          <div class="card-content">
+            <div class="property-name">Local Comercial en Zona Sur</div>
+            <div class="property-address">Zona Sur, Ciudad</div>
+            <div class="reservation-info">Contrato: Del 01/06/2023 al 31/05/2024 | Monto mensual: $700</div>
+            <div class="status">Vencida</div>
+            <div class="warning">
+              <p>⚠️ El usuario ha dejado de pagar y aún ocupa la propiedad.</p>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="action-button btn-legal"><i class="icon">📝</i> Generar notificación legal</button>
+          <button class="action-button btn-eviction"><i class="icon">⚖️</i> Iniciar desalojo</button>
+          <button class="action-button btn-chat"><i class="icon">💬</i> Contactar usuario</button>
+        </div>
+      </div>
+
+      <!-- Ejemplo de reserva finalizada -->
+      <div class="reservation-card status-completed">
+        <div class="card-layout">
+          <img src="https://via.placeholder.com/150x100" alt="Propiedad" class="property-image">
+          <div class="card-content">
+            <div class="property-name">Casa Familiar en Suburbios</div>
+            <div class="property-address">Suburbios, Ciudad</div>
+            <div class="reservation-info">Contrato: Del 01/01/2023 al 31/12/2023 | Monto mensual: $400</div>
+            <div class="status">Finalizada</div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="action-button btn-renew"><i class="icon">🔄</i> Renovar contrato</button>
+          <button class="action-button btn-details"><i class="icon">👁️</i> Ver detalles</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enlace al archivo JavaScript -->
+  <script src="/Frontend/Js/reservas.js"></script>
+</body>
+</html>

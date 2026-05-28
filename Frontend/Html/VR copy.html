@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tour Virtual</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <link href="/Frontend/Css/VR copy.css" rel="stylesheet">
+    <style>
+        body { margin: 0; }
+        #panorama { width: 100vw; height: 100vh; }
+    </style>
+</head>
+<body>
+    <!-- Agrega este contenedor para los botones -->
+<div class="nav-buttons">
+    <button onclick="cambiarEscena('calle')">Calle</button>
+    <button onclick="cambiarEscena('sala')">Sala</button>
+    <button onclick="cambiarEscena('comedor')">Comedor</button>
+    <!-- Agrega más botones según las habitaciones de tu tour -->
+</div>
+    <div id="panorama"></div>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="/Frontend/Js/VR copy.js"></script>
+</body>
+</html>

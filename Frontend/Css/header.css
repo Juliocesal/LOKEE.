@@ -1,0 +1,120 @@
+/* Estilos generales para el header */
+header {
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra ligera */
+    position: fixed; /* Fijo en la parte superior */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Espaciado interno más compacto */
+    max-width: 1200px; /* Ancho máximo centrado */
+    margin: 0 auto; /* Centrado horizontal */
+  }
+  
+  /* Logo */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el logo y el texto más reducido */
+  }
+  
+  .logo-img {
+    width: 20px; /* Tamaño del logo más pequeño */
+    height: 20px;
+    object-fit: cover;
+    border-radius: 8px; /* Bordes redondeados suaves */
+    transition: transform 0.3s ease; /* Animación suave */
+  }
+  
+  .logo-img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+  }
+  
+  .logo-text {
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna */
+    font-size: 20px; /* Tamaño de fuente más compacto */
+    font-weight: 600;
+    color: #333; /* Color oscuro para el texto */
+    letter-spacing: 4px; /* Espaciado entre letras más reducido */
+  }
+  
+  /* Enlaces de navegación */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* Espacio entre los enlaces más reducido */
+  }
+  
+  .nav-link {
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    font-weight: 500;
+    color: #666; /* Color gris claro para los enlaces */
+    text-decoration: none;
+    position: relative; /* Necesario para el efecto de subrayado */
+    transition: color 0.3s ease, transform 0.3s ease; /* Animación suave */
+  }
+  
+  .nav-link:hover {
+    color: #007bff; /* Cambia el color al pasar el mouse */
+    transform: translateY(-1px); /* Ligero efecto de elevación */
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px; /* Subrayado más delgado */
+    background-color: #007bff; /* Color del subrayado */
+    transition: width 0.3s ease; /* Animación suave */
+  }
+  
+  .nav-link:hover::after {
+    width: 100%; /* Subrayado completo al pasar el mouse */
+  }
+  
+  /* Botón de menú para dispositivos móviles */
+  .menu-toggle {
+    display: none; /* Oculto por defecto */
+    font-size: 22px; /* Icono más pequeño */
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Animación suave */
+  }
+  
+  .menu-toggle:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .nav-links {
+        display: none; /* Oculta los enlaces en pantallas pequeñas */
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 56px; /* Menú más cerca del header */
+        right: 0;
+        width: 250px; /* Menú más compacto */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        padding: 15px;
+        z-index: 1000;
+        border-radius: 10px; /* Bordes redondeados */
+    }
+  
+    .nav-links.active {
+        display: flex; /* Muestra los enlaces cuando el menú está activo */
+    }
+  
+    .menu-toggle {
+        display: block; /* Muestra el botón de menú en pantallas pequeñas */
+    }
+  }

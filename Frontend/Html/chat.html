@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajería Directa</title>
+    <link rel="stylesheet" href="/Frontend/Css/chat.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Panel de Conversaciones -->
+        <div class="conversation-list">
+            <div class="conversation-header">
+                <h3>Conversaciones</h3>
+                <button class="toggle-conversations">Ver todas</button>
+            </div>
+            <div class="conversation-items">
+                <!-- Ejemplo de conversación -->
+                <div class="conversation-item active" data-chat-id="1">
+                    <img src="avatar1.jpg" alt="Avatar" class="avatar">
+                    <div class="conversation-info">
+                        <h4>Casa en Tijuana</h4>
+                        <p class="last-message">Hola, ¿está disponible?</p>
+                    </div>
+                    <span class="unread-badge">2</span>
+                </div>
+                <!-- Repite para otras conversaciones -->
+            </div>
+        </div>
+
+        <!-- Vista de Chat -->
+        <div class="chat-view">
+            <div class="chat-header">
+                <div class="back-button" onclick="toggleConversations()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg>
+                </div>
+                <img src="avatar1.jpg" alt="Avatar" class="avatar">
+                <div class="chat-info">
+                    <h4>Casa en Tijuana</h4>
+                    <p class="status">En línea</p>
+                </div>
+            </div>
+            <div class="message-list">
+                <!-- Mensajes -->
+                <div class="message received">
+                    <p>Hola, ¿en qué puedo ayudarte?</p>
+                    <span class="timestamp">12:30 PM</span>
+                </div>
+                <div class="message sent">
+                    <p>¿Está disponible para rentar?</p>
+                    <span class="timestamp">12:31 PM</span>
+                </div>
+                <!-- Repite para más mensajes -->
+            </div>
+            <div class="message-input">
+                <input type="text" placeholder="Escribe un mensaje..." class="input-field">
+                <button class="send-button">Enviar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

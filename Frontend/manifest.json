@@ -1,0 +1,63 @@
+{
+    "name": "Rentify",
+    "short_name": "Rentify",
+    "description": "Plataforma para encontrar y gestionar rentas de propiedades",
+    "start_url": "/Frontend/Html/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2563eb",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/Frontend/Images/android/android-launchericon-96-96.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/Frontend/Images/android/android-launchericon-96-96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/Frontend/Images/android/android-launchericon-192-192.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "/Frontend/Images/android/android-launchericon-192-192.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/Frontend/Images/android/android-launchericon-192-192.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/Frontend/Images/android/android-launchericon-192-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/Frontend/Images/android/android-launchericon-512-512.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/Frontend/Images/android/android-launchericon-512-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "screenshots/screenshot1.png",
+            "sizes": "1080x1920",
+            "type": "image/png",
+            "label": "Pantalla principal de búsqueda"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false
+}

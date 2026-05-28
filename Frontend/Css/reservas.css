@@ -1,0 +1,275 @@
+/* Estilo global */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  /* Botón de retroceso */
+  .back-button-container {
+    padding: 20px;
+  }
+  
+  .back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  }
+  
+  .back-button i {
+    font-size: 16px;
+  }
+  
+  /* Contenedor principal */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Barra de búsqueda y filtros */
+  .search-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .filters select {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Tarjetas de reservas */
+  .reservation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .reservation-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .reservation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .property-image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .card-content {
+    flex-grow: 1;
+  }
+  
+  .property-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+  }
+  
+  .property-address {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+  }
+  
+  .reservation-info {
+    font-size: 14px;
+    color: #34495e;
+    margin-bottom: 10px;
+  }
+  
+  .status {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-transform: uppercase;
+  }
+  
+  .status-pending {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .status-active {
+    background-color: #cce5ff;
+    color: #004085;
+  }
+  
+  .status-overdue {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  .status-completed {
+    background-color: #e2e3e5;
+    color: #383d41;
+  }
+  
+  .payment-status {
+    margin-top: 10px;
+  }
+  
+  .progress-bar-container {
+    margin-top: 15px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 4px;
+  }
+  
+  .warning {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1 1 auto;
+    text-align: center;
+    min-width: 120px;
+  }
+  
+  .action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .action-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  
+  .btn-pay {
+    background-color: #3498db;
+    color: #ffffff;
+  }
+  
+  .btn-contract {
+    background-color: #2ecc71;
+    color: #ffffff;
+  }
+  
+  .btn-cancel {
+    background-color: #e74c3c;
+    color: #ffffff;
+  }
+  
+  .btn-renew {
+    background-color: #f1c40f;
+    color: #ffffff;
+  }
+  
+  .btn-details {
+    background-color: #9b59b6;
+    color: #ffffff;
+  }
+  
+  .btn-legal {
+    background-color: #e67e22;
+    color: #ffffff;
+  }
+  
+  .btn-eviction {
+    background-color: #c0392b;
+    color: #ffffff;
+  }
+  
+  .btn-chat {
+    background-color: #34495e;
+    color: #ffffff;
+  }

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Gestión de Rentas</title>
+  <!-- Enlazamos los archivos CSS y JS -->
+  <link rel="stylesheet" href="/Frontend/Css/Dashboard.css">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="navbar-title">Dashboard</h1>
+      <nav class="navbar-menu">
+        <a href="#" class="menu-item active">Resumen</a>
+        <a href="#" class="menu-item">Propiedades</a>
+        <a href="#" class="menu-item">Inquilinos</a>
+        <a href="#" class="menu-item">Arrendatarios</a>
+        <a href="#" class="menu-item">Configuración</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenedor principal -->
+  <main class="dashboard">
+    <div class="container">
+
+      <!-- Resumen General -->
+      <section class="summary-section">
+        <h2 class="section-title">Resumen General</h2>
+        <div class="summary-cards">
+          <div class="summary-card">
+            <p class="card-label">Propiedades Registradas</p>
+            <p class="card-value" id="totalProperties">0</p>
+          </div>
+          <div class="summary-card">
+            <p class="card-label">Inquilinos Activos</p>
+            <p class="card-value" id="activeTenants">0</p>
+          </div>
+          <div class="summary-card">
+            <p class="card-label">Arrendatarios Registrados</p>
+            <p class="card-value" id="registeredLandlords">0</p>
+          </div>
+          <div class="summary-card">
+            <p class="card-label">Ingresos Totales</p>
+            <p class="card-value" id="totalIncome">$0.00</p>
+          </div>
+          <div class="summary-card">
+            <p class="card-label">Comisiones Totales</p>
+            <p class="card-value" id="totalCommissions">$0.00</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gráficos y Estadísticas -->
+      <section class="charts-section">
+        <h2 class="section-title">Gráficos y Estadísticas</h2>
+        <div class="charts-container">
+          <div class="chart-box">
+            <canvas id="monthlyIncomeChart"></canvas>
+          </div>
+          <div class="chart-box">
+            <canvas id="propertyStatusChart"></canvas>
+          </div>
+          <div class="chart-box">
+            <canvas id="incomeTrendChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tablas Dinámicas -->
+      <section class="tables-section">
+        <h2 class="section-title">Tablas Dinámicas</h2>
+        <div class="tables-container">
+          <div class="table-box">
+            <h3 class="table-title">Propiedades</h3>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Ubicación</th>
+                  <th>Estado</th>
+                  <th>Ingresos</th>
+                </tr>
+              </thead>
+              <tbody id="propertiesTable">
+                <!-- Filas generadas dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+          <div class="table-box">
+            <h3 class="table-title">Pagos Recientes</h3>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Inquilino</th>
+                  <th>Monto</th>
+                  <th>Descripción</th>
+                  <th>Estatus</th>
+                </tr>
+              </thead>
+              <tbody id="recentPaymentsTable">
+                <!-- Filas generadas dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+          <div class="table-box">
+            <h3 class="table-title">Comisiones</h3>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Propiedad</th>
+                  <th>Monto</th>
+                  <th>Estatus</th>
+                </tr>
+              </thead>
+              <tbody id="commissionsTable">
+                <!-- Filas generadas dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filtros y Alertas -->
+      <section class="filters-alerts-section">
+        <h2 class="section-title">Filtros y Alertas</h2>
+        <div class="filters-container">
+          <label for="dateRange">Rango de Fechas:</label>
+          <input type="date" id="startDate" name="startDate">
+          <input type="date" id="endDate" name="endDate">
+          <button id="applyFilters" class="btn-filter">Aplicar Filtros</button>
+        </div>
+        <div class="alerts-container">
+          <h3 class="alerts-title">Alertas</h3>
+          <ul id="alertsList">
+            <!-- Alertas generadas dinámicamente -->
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Tu Aplicación de Rentas. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Librerías externas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/Frontend/Js/Dashboard.js"></script>
+</body>
+</html>

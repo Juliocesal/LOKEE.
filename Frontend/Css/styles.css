@@ -1,0 +1,845 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1d4ed8;
+    --accent-color: #f59e0b;
+    --background-light: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --menu-width: 300px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    overflow: hidden;
+}
+
+/* Menú Hamburguesa */
+.side-menu {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    bottom: 0;
+    width: var(--menu-width);
+    background: white;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    flex-direction: column;
+}
+
+body.menu-active .side-menu {
+    transform: translateX(300px); /* Mover hacia la derecha */
+}
+
+.content {
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Aplicar desenfoque al contenido principal cuando el menú está activo */
+body.menu-active .content {
+    filter: blur(5px); /* Desenfoque */
+    pointer-events: none; /* Desactivar interacciones */
+}
+
+
+.menu-header {
+    padding: 1.5rem;
+    background: var(--primary-color);
+    color: white;
+}
+
+.user-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.menu-sections {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.menu-section {
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    gap: 1rem;
+    transition: background var(--transition);
+}
+
+.menu-item:hover {
+    background: var(--background-light);
+}
+
+.badge {
+    margin-left: auto;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+}
+
+.owner-section {
+    border-top: 2px solid var(--background-light);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+/* Contenedor Principal */
+.main-container {
+    transition: margin-left var(--transition);
+}
+
+/* Header Superior */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(5px);
+    z-index: 900;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    color: var(--text-primary);
+}
+
+.header-title {
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Mapa */
+#map {
+    height: 100vh;
+    width: 100vw;
+    margin-top: 60px;
+}
+
+/* Filtros */
+.filters-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    z-index: 950;
+}
+
+.location-search {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre elementos */
+    width: 100%;
+    height: 80%; /* Ocupa todo el ancho disponible */
+    max-width: 600px; /* Máximo ancho deseado */
+}
+
+.autocomplete {
+    width: 500px;
+    height: 50px;/* Permite que el buscador ocupe el espacio restante */
+    position: relative; /* Necesario para posicionar correctamente el geocoder */
+}
+
+
+.type-scroller {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+}
+
+.type-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.type-chip {
+    min-width: 128px;
+    height: 40px;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+
+
+.type-chip:hover {
+    background-color: #f9f9f9; /* Fondo más claro */
+    border-color: #c0c0c0; /* Borde más pronunciado */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+/* Efecto cuando un chip está seleccionado */
+.type-chip.active {
+    background-color: #1a73e8; /* Color primario */
+    color: white; /* Texto blanco */
+    border-color: #1a73e8; /* Borde igual al fondo */
+    box-shadow: 0 2px 6px rgba(26, 115, 232, 0.2); /* Sombra con color primario */
+}
+
+.type-chip i.fas {
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+    font-size: 16px; /* Tamaño del ícono */
+}
+
+
+.advanced-filter-button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+/* Modal Filtros Avanzados */
+.advanced-filters-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    display: none;
+    z-index: 1001;
+}
+
+.modal-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    padding: 1.5rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.filter-section {
+    margin-bottom: 1.5rem;
+}
+
+.price-range {
+    padding: 1rem 0;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+}
+
+.counter-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.counter-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e2e8f0;
+    background: none;
+    font-size: 1.2rem;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.amenity-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.amenity-item.active {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+}
+
+.switch-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.switch-container label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.switch-input {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    appearance: none;
+    background: #e2e8f0;
+    border-radius: 13px;
+    transition: all 0.3s ease;
+}
+
+.switch-input:checked {
+    background: var(--primary-color);
+}
+
+.switch-slider {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    left: 2px;
+    top: 2px;
+    transition: all 0.3s ease;
+}
+
+.switch-input:checked + .switch-slider {
+    transform: translateX(24px);
+}
+
+/* Estados Activos */
+.menu-active .side-menu {
+    transform: translateX(var(--menu-width));
+}
+
+.menu-active .main-container {
+    margin-left: var(--menu-width);
+}
+
+    .map-controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        display: flex;
+        gap: 10px;
+    }
+
+    .map-controls button {
+        padding: 5px;
+        font-size: 14px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+.map-controls button:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+.menu-item {
+    cursor: pointer; /* Cambia el cursor a una mano */
+    text-decoration: none; /* Quita el subrayado si es un enlace */
+    color: inherit; /* Usa el mismo color de texto que el padre */
+    display: flex; /* Alinea el ícono y el texto horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    gap: 8px; /* Espacio entre el ícono y el texto */
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0; /* Cambia el fondo al pasar el mouse */
+    color: #007bff; /* Cambia el color del texto */
+    border-radius: 4px; /* Agrega bordes redondeados */
+}
+
+/* Botón Locate Me */
+#locateMe {
+    align-items: center;
+    justify-content: center;
+    width: 44px; /* Tamaño del botón */
+    height: 44px; /* Tamaño del botón */
+    background-color: white; /* Color primario (puedes cambiarlo según tu paleta) */
+    color: white; /* Color del ícono */
+    border: none; /* Sin bordes */
+    border-radius: 50%; /* Forma circular */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    cursor: pointer; /* Cursor tipo puntero */
+    transition: all 0.3s ease; /* Transición suave para efectos hover */
+}
+
+
+
+/* Efecto hover cuando el usuario pasa el mouse sobre el botón */
+#locateMe:hover {
+    background-color: whitesmoke; /* Un tono más oscuro del color primario */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
+
+/* Efecto cuando el botón está activo (presionado) */
+#locateMe:active {
+    background-color: #3c90c9; /* Un tono aún más oscuro */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra reducida */
+    transform: scale(0.95); /* Hacer el botón ligeramente más pequeño */
+}
+
+/* Estilo del ícono dentro del botón */
+#locateMe .material-icons-round {
+    font-size: 30px; /* Tamaño del ícono */
+}
+
+/* Estilo para el ícono "location_on" */
+.material-icons-round {
+    color: rgb(36, 36, 36); /* Azul claro (puedes ajustar el tono según tu preferencia) */
+    font-size: 24px; /* Tamaño del ícono */
+}
+
+
+@media (max-width: 768px) {
+    #locateMe {
+        width: 44px;
+        height: 44px;
+    }
+
+    #locateMe .material-icons-round {
+        font-size: 22px;
+    }
+}
+
+/* Contenedor principal del mapa */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Botón para activar/desactivar la barra lateral */
+.toggle-sidebar-button {
+    position: fixed;
+    transform: translateX(-50%);
+    bottom: 240px; /* Ajusta la distancia desde la parte inferior */
+    left: 50%; /* Ajusta la distancia desde la derecha */
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.toggle-sidebar-button:hover {
+    background-color: #2980b9;
+}
+
+/* Barra lateral derecha */
+.sidebar {
+    position: fixed;
+    top: 80px; /* Comienza justo debajo del encabezado */
+    right: -300px; /* Oculto inicialmente */
+    width: 400px; /* Ancho fijo */
+    height: calc(100vh - 60px); /* Altura total menos la altura del encabezado */
+    background-color: #fff;
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    overflow-y: auto; /* Permite desplazamiento si hay mucho contenido */
+    z-index: 999;
+}
+
+.sidebar.active {
+    right: 0; /* Mostrar la barra lateral */
+}
+
+/* Estilo para el botón de cerrar */
+.close-sidebar-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Encabezado de la barra lateral */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.close-sidebar-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Lista de propiedades */
+.property-list {
+    padding: 15px;
+}
+
+.property-item {
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.property-item:hover {
+    transform: translateY(-5px);
+}
+
+.property-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.property-details {
+    flex: 1;
+}
+
+.property-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.property-price {
+    font-size: 14px;
+    color: #2ecc71;
+    margin-bottom: 5px;
+}
+
+.property-features {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Animación de entrada/salida */
+.sidebar {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Diseño para dispositivos móviles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Ocupa todo el ancho en móviles */
+        height: auto; /* Altura automática */
+        position: fixed;
+        top: 0;
+        right: -100%; /* Oculto inicialmente */
+        transition: right 0.3s ease;
+    }
+
+    .sidebar.active {
+        right: 0; /* Visible cuando está activo */
+    }
+}
+
+.contact-agent-btn {
+    background-color: #3498db; /* Color azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    font-size: 0.9em; /* Tamaño de fuente */
+    width: 100%; /* Ancho completo */
+    margin-top: 10px; /* Espacio superior */
+    text-align: center; /* Alineación centrada */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.contact-agent-btn:hover {
+    background-color: #2980b9; /* Cambio de color al pasar el ratón */
+}
+
+.property-item {
+    cursor: pointer; /* Indica que es clickeable */
+    border: 1px solid #ddd; /* Borde opcional para separar las tarjetas */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Evita que el contenido se desborde */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efecto suave */
+    margin-bottom: 15px; /* Espaciado entre tarjetas */
+}
+
+.property-item:hover {
+    transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra al hacer hover */
+}
+
+.property-item:hover {
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+/* Animación de rotación hacia abajo */
+.rotate-down {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Animación de rotación hacia arriba */
+.rotate-up {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* Estilo para el contenedor principal del geocoder */
+.mapboxgl-ctrl-geocoder {
+    width: 100%; /* Ancho completo */
+    max-width: 3px; /* Ancho máximo opcional */
+    margin: 0 auto; /* Centrado horizontal (opcional) */
+ /* Incluye padding y borde en el cálculo del ancho */
+}
+
+/* Estilo para el input */
+.mapboxgl-ctrl-geocoder--input {
+    width: 100%; /* Ancho completo */
+    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    border: 1px solid #ccc; /* Borde suave */
+    border-radius: 4px; /* Bordes redondeados */
+    outline: none; /* Elimina el resaltado predeterminado al hacer foco */
+}
+
+
+.view-toggle-button {
+    position: fixed; /* Fija los botones en la pantalla */
+    top: 100px; /* Distancia desde la parte superior */
+    left: 20px; /* Distancia desde la derecha */
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para mejorar la visibilidad */
+}
+
+.view-toggle-buttons {
+    position: fixed; /* Fija los botones en la pantalla */
+    top: 150px; /* Distancia desde la parte superior */
+    left: 20px; /* Distancia desde la derecha */
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para mejorar la visibilidad */
+}
+
+@media (max-width: 768px) {
+    .view-toggle-button {
+        font-size: 16px; /* Tamaño de fuente más grande */
+        padding: 12px 18px; /* Más relleno para facilitar el toque */
+    }
+    .view-toggle-buttons {
+        font-size: 16px; /* Tamaño de fuente más grande */
+        padding: 12px 18px; /* Más relleno para facilitar el toque */
+    }
+}
+
+.view-toggle-button:hover {
+    background-color: #3498db; /* Cambia el color de fondo al pasar el ratón */
+    color: #ffffff; /* Cambia el color del texto */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+.view-toggle-buttons:hover {
+    background-color: #3498db; /* Cambia el color de fondo al pasar el ratón */
+    color: #ffffff; /* Cambia el color del texto */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+#diagonalViewButton i {
+    display: inline-block;
+    transform: rotate(110deg); /* Rotar el ícono 45 grados */
+}
+
+
+/* Estilos generales para el encabezado */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Botón de menú */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Contenedor del logo y el título */
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio entre el logo y el título */
+}
+
+/* Logo */
+.logo {
+    width: 30px; /* Ajusta según el tamaño deseado */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Título */
+.header-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Controles del mapa */
+.map-controls {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Icono de descarga */
+.material-icons-round {
+    margin-right: 5px;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    backdrop-filter: blur(5px); /* Desenfoque */
+    z-index: 998; /* Por debajo del menú */
+    display: none; /* Oculto por defecto */
+}
+
+/* Clase activa para el cuerpo (cuando el menú está abierto) */
+body.menu-active .backdrop {
+    display: block; /* Mostrar al abrir el menú */
+}
+
+.property-item {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.3s ease;
+}
+
+.property-item:hover {
+    background-color: #f3f4f6;
+    cursor: pointer;
+}
+

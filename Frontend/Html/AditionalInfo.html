@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile</title>
+    <link rel="stylesheet" href="/Frontend/Css/AditionalInfo.css">
+    <script src="https://cdn.jsdelivr.net/npm/imask"></script>  
+    <!-- PWA manifest and iOS meta tags would go here -->
+</head>
+<body>
+    <div class="registration-flow">
+        <!-- Progress indicator -->
+        <div class="progress-header">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5"></div>
+            <button class="skip-button" aria-label="Skip for now">Skip</button>
+        </div>
+
+        <!-- Step container -->
+        <form id="registrationForm" class="step-container">
+            <!-- Profile Picture Step -->
+            <div class="step active" data-step="1" role="tabpanel" aria-labelledby="step1-title"  >
+                <h1 id="step1-title">Add Profile Picture</h1>
+                <div class="avatar-upload">
+                    <input type="file" id="avatarInput" accept="image/*" hidden>
+                    <label for="avatarInput" class="avatar-preview">
+                        <span class="upload-instruction">Tap to add photo</span>
+                    </label>
+                </div>
+                <p class="helper-text">Recommended size: 300x300 pixels</p>
+            </div>
+
+            <!-- Phone Verification Step -->
+            <div class="step" data-step="2" role="tabpanel" aria-labelledby="step2-title" hidden>
+                <h1 id="step2-title">Phone Verification</h1>
+                <div class="input-group">
+                    <label for="phoneNumber">Mobile Number</label>
+                    <input type="tel" id="phoneNumber" inputmode="tel" placeholder="+1 234 567 890" required>
+                </div>
+                <button type="button" class="verification-button">Send Verification Code</button>
+            </div>
+
+            <!-- ID Verification Step -->
+            <div class="step" data-step="3" role="tabpanel" aria-labelledby="step3-title" hidden>
+                <h1 id="step3-title">ID Verification</h1>
+                <div class="document-upload">
+                    <input type="file" id="idDocument" accept="image/*,.pdf" hidden>
+                    <label for="idDocument" class="document-card">
+                        <span class="document-type">Government Issued ID</span>
+                        <span class="document-requirements">JPEG, PNG or PDF (Max 5MB)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Payment Method Step -->
+            <div class="step" data-step="4" role="tabpanel" aria-labelledby="step4-title" hidden>
+                <h1 id="step4-title">Payment Method</h1>
+                <div class="card-input">
+                    <div class="card-preview"></div>
+                    <div class="input-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" inputmode="numeric" pattern="[0-9\s]{13,19}" placeholder="4242 4242 4242 4242" required>
+                    </div>
+                    <div class="split-input">
+                        <div class="input-group">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="text" id="expiryDate" placeholder="MM/YY" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="cvc">CVC</label>
+                            <input type="text" id="cvc" inputmode="numeric" placeholder="123" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Billing Address Step -->
+            <div class="step" data-step="5" role="tabpanel" aria-labelledby="step5-title" hidden>
+                <h1 id="step5-title">Billing Address</h1>
+                <div class="input-group">
+                    <label for="streetAddress">Street Address</label>
+                    <input type="text" id="streetAddress" placeholder="123 Main St" required>
+                </div>
+                <div class="split-input">
+                    <div class="input-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="New York" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="zipCode">ZIP Code</label>
+                        <input type="text" id="zipCode" inputmode="numeric" placeholder="10001" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="country">Country</label>
+                    <select id="country" required>
+                        <select id="country" required>
+                            <option value="">Select Country</option>
+                            <option value="AR">Argentina</option>
+                            <option value="BO">Bolivia</option>
+                            <option value="BR">Brazil</option>
+                            <option value="CL">Chile</option>
+                            <option value="CO">Colombia</option>
+                            <option value="CR">Costa Rica</option>
+                            <option value="CU">Cuba</option>
+                            <option value="DO">Dominican Republic</option>
+                            <option value="EC">Ecuador</option>
+                            <option value="SV">El Salvador</option>
+                            <option value="GT">Guatemala</option>
+                            <option value="HN">Honduras</option>
+                            <option value="MX">Mexico</option>
+                            <option value="NI">Nicaragua</option>
+                            <option value="PA">Panama</option>
+                            <option value="PY">Paraguay</option>
+                            <option value="PE">Peru</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="UY">Uruguay</option>
+                            <option value="VE">Venezuela</option>
+                        <!-- Agrega más países según sea necesario -->
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <!-- Navigation Controls -->
+        <div class="navigation-controls">
+            <button type="button" class="nav-button previous" aria-label="Previous step" hidden></button>
+            <button type="button" class="nav-button next">Next</button>
+        </div>
+    </div>
+
+    <!-- We'll add the script later with the CSS -->
+    <script src="/Frontend/Js/AditionalInfo.js"></script>
+</body>
+</html>

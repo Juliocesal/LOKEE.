@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoKee - Property Detail</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/Frontend/Css/Info.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body class="bg-light">
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="logo-container">
+                <a href="/Frontend/html/index.html" class="logo-link">
+                    <img src="/Frontend/Images/LogoS.png" alt="Logo LoKee" class="logo-img">
+                    <div class="logo-text">LOKEE</div>
+                </a>
+            </div>
+    
+            <!-- Enlaces de Navegación -->
+            <div class="nav-links">
+                <a href="/Frontend/Html/contact.html" class="nav-link">Contacto</a>
+                
+            </div>
+    
+            <!-- Botón de Menú para Dispositivos Móviles -->
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Property Hero Section -->
+    <section class="container my-5">
+        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner rounded-3 overflow-hidden">
+                <div class="carousel-item active">
+                    <img src="/Frontend/Images/casa1/Casa1.png" class="d-block w-100" alt="Property Image">
+                </div>
+                <div class="carousel-item">
+                    <img src="/Frontend/Images/casa1/casa1_cocina.png" class="d-block w-100" alt="Property Image">
+                </div>
+                <div class="carousel-item">
+                    <img src="/Frontend/Images/casa1/casa1_cocina1.png" class="d-block w-100" alt="Property Image">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <!-- Image Thumbnails -->
+        <div class="d-flex gap-2 mt-3">
+            <img src="/Frontend/Images/casa1/previews/Casa1.png" class="img-thumbnail rounded" style="cursor: pointer;" data-bs-target="#propertyCarousel" data-bs-slide-to="0">
+            <img src="/Frontend/Images/casa1/previews/casa1_cocina.png" class="img-thumbnail rounded" style="cursor: pointer;" data-bs-target="#propertyCarousel" data-bs-slide-to="1">
+            <img src="/Frontend/Images/casa1/previews/casa1_cocina1.png" class="img-thumbnail rounded" style="cursor: pointer;" data-bs-target="#propertyCarousel" data-bs-slide-to="2">
+            
+        </div>
+    </section>
+
+    <!-- Property Details -->
+    <section class="container mb-5">
+        <div class="row">
+            <div class="col-lg-8 pe-lg-4">
+                <!-- Property Header -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h1 class="h2 fw-bold">Casa moderna</h1>
+                        <p class="text-muted mb-2">
+                            <i class="fa-solid fa-location-dot me-2"></i>Tijuana, B.C.
+                        </p>
+                        <span class="badge bg-success mb-3">Disponible</span>
+                    </div>
+                    <div class="d-none d-lg-block">
+                        <button class="btn btn-outline-primary" data-bs-toggle="tooltip" title="Save to favorites">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Key Features -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-md-4">
+                        <div class="bg-white p-3 rounded shadow-sm text-center">
+                            <i class="fa-solid fa-bed text-primary mb-2"></i>
+                            <div>2 habitaciones</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="bg-white p-3 rounded shadow-sm text-center">
+                            <i class="fa-solid fa-bath text-primary mb-2"></i>
+                            <div>1 Baños</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="bg-white p-3 rounded shadow-sm text-center">
+                            <i class="fa-solid fa-ruler-combined text-primary mb-2"></i>
+                            <div>65 m²</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <h3 class="h4 fw-bold mb-3">Descripción</h3>
+                <p class="text-muted">Descubre esta acogedora casa de 2 habitaciones y 1 baños, perfectamente diseñada para ofrecer comodidad y estilo. Con un área total de 65 m², cuenta con un amplio jardín, garaje techado apropiada para estudiantes y trabajadores.</p>
+
+                <!-- Amenities -->
+                <h3 class="h4 fw-bold mb-3">Amenidades</h3>
+                <div class="row row-cols-2 row-cols-md-3 g-3 mb-4">
+                    <div class="col">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-wifi text-primary"></i> Wifi
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-dumbbell text-primary"></i> Gym cerca
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-car text-primary"></i> Estacionamiento
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-snowflake text-primary"></i> Aire acondicionado
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VR Tour -->
+                <div class="bg-white p-4 rounded shadow-sm mb-4">
+                    <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-vr-cardboard me-2"></i>Tour Virtual</h3>
+                    <div class="ratio ratio-16x9 vr-tour-iframe">
+                        <!-- Reemplaza el iframe de YouTube con el tuyo -->
+                        <iframe 
+                            src="/Frontend/Html/VR.html" 
+                            allowfullscreen 
+                            style="border: none;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Floor Plan -->
+                <div class="bg-white p-4 rounded shadow-sm mb-4">
+                    <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-house me-2"></i>Visualización 3D y Planos</h3>
+                    <div class="ratio ratio-16x9 floor-plan-iframe">
+                        <iframe 
+                            src="/Frontend/Html/3dmodel.html" 
+                            allowfullscreen 
+                            style="border: none;">
+                        </iframe>
+                    </div>
+                    <a href="/Frontend/Images/casa1/casa1.pdf" class="btn btn-outline-primary"><i class="fa-solid fa-download me-2"></i>Descargar PDF</a>
+                </div>
+
+                <!-- Location Section -->
+                <h3 class="h4 fw-bold mb-3">Location</h3>
+                <div class="bg-white p-4 rounded shadow-sm mb-4">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4216.958813765069!2d-116.82926342357277!3d32.45788427379863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d93e760ea0b36b%3A0x1e17ba3878dec443!2sP.%C2%BA%20de%20Los%20Laureles%2026008%2C%20El%20Refugio%2C%20Garcia%2C%2022253%20Tijuana%2C%20B.C.!5e1!3m2!1ses!2smx!4v1743549122623!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h5 class="h6 fw-bold">cerca de:</h5>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="fa-solid fa-check me-2"></i>Cerca de UTT</li>
+                                <li><i class="fa-solid fa-check me-2"></i>Parques cercas</li>
+                                <li><i class="fa-solid fa-check me-2"></i>Variedad de locales de comida</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="h6 fw-bold">Transportation:</h5>
+                            <ul class="list-unstyled text-muted">
+                                <li><i class="fa-solid fa-check me-2"></i>Calafias</li>
+                                <li><i class="fa-solid fa-check me-2"></i>Taxis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rental Policies -->
+                <h3 class="h4 fw-bold mb-4">Políticas de renta</h3>
+<div class="mb-4">
+    <div class="policy-item mb-3">
+        <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-money-bill me-3 text-primary" style="font-size: 1.5rem;"></i>
+            <span class="fw-semibold fs-6">Depósito de seguridad</span>
+        </div>
+        <p class="text-muted ms-5 mb-0">Un depósito de un mes de renta requerido.</p>
+    </div>
+
+    <div class="policy-item mb-3">
+        <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-file-contract me-3 text-primary" style="font-size: 1.5rem;"></i>
+            <span class="fw-semibold fs-6">Términos</span>
+        </div>
+        <p class="text-muted ms-5 mb-0">12 meses mínimo.</p>
+    </div>
+
+    <div class="policy-item mb-3">
+        <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-paw me-3 text-primary" style="font-size: 1.5rem;"></i>
+            <span class="fw-semibold fs-6">Política de mascotas</span>
+        </div>
+        <p class="text-muted ms-5 mb-0">Permitir mascotas con $500 de depósito.</p>
+    </div>
+
+    <div class="policy-item mb-3">
+        <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-tools me-3 text-primary" style="font-size: 1.5rem;"></i>
+            <span class="fw-semibold fs-6">Políticas de mantenimiento</span>
+        </div>
+        <p class="text-muted ms-5 mb-0">24/7 soporte de emergencia para mantenimiento.</p>
+    </div>
+</div>
+
+                <!-- Reviews Section -->
+                <div class="bg-white p-4 rounded shadow-sm mb-4">
+                    <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-star me-2 text-warning"></i>Reviews (4.8)</h3>
+                    <div class="d-flex gap-3 mb-3">
+                        <img src="https://via.placeholder.com/40" class="rounded-circle">
+                        <div>
+                            <h5 class="m-0">Julio César</h5>
+                            <div class="text-warning">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="text-muted small">Febrero 2025</p>
+                            <p class="text-muted">Renta barata, casa muy acojedora y bien situada!!</p>
+                        </div>
+                    </div>
+
+                    
+                    <!-- More reviews can be added here -->
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 10px;">
+                    <div class="bg-white p-4 rounded shadow-sm">
+                        <h2 class="h4 fw-bold text-primary mb-3">$5,500 / mensual</h2>
+                        <button class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                            <i class="fa-solid fa-calendar-check me-2"></i> Agendar cita
+                        </button>
+                        <button class="btn btn-outline-primary w-100">
+                            <i class="fa-solid fa-envelope me-2"></i> Contactar propietario
+                        </button>
+                    </div>
+
+                    <!-- Owner Profile -->
+                    <div class="bg-white p-4 rounded shadow-sm mt-4">
+                        <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-user me-2"></i>Perfil del propietario</h3>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://via.placeholder.com/60" class="rounded-circle">
+                            <div>
+                                <h5 class="m-0">Juan Perez</h5>
+                                <p class="text-muted small mb-0">Miembro desde el 2025</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 mt-3">
+                            <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-info btn-sm"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-danger btn-sm"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agendar una Visita</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="visitForm">
+                        <!-- Nombre -->
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" placeholder="Tu nombre" required>
+                        </div>
+    
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="tu@email.com" required>
+                        </div>
+    
+                        <!-- Fecha 1 -->
+                        <div class="mb-3">
+                            <label class="form-label">Fecha Preferida 1</label>
+                            <div class="d-flex gap-2">
+                                <input type="date" class="form-control" required>
+                                <select class="form-select" required>
+                                    <option value="" disabled selected>Selecciona una hora</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                    <option value="17:00">05:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <!-- Fecha 2 -->
+                        <div class="mb-3">
+                            <label class="form-label">Fecha Preferida 2 (opcional)</label>
+                            <div class="d-flex gap-2">
+                                <input type="date" class="form-control">
+                                <select class="form-select">
+                                    <option value="" disabled selected>Selecciona una hora</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                    <option value="17:00">05:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <!-- Fecha 3 -->
+                        <div class="mb-3">
+                            <label class="form-label">Fecha Preferida 3 (opcional)</label>
+                            <div class="d-flex gap-2">
+                                <input type="date" class="form-control">
+                                <select class="form-select">
+                                    <option value="" disabled selected>Selecciona una hora</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                    <option value="17:00">05:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <!-- Mensaje -->
+                        <div class="mb-3">
+                            <label class="form-label">Mensaje (opcional)</label>
+                            <textarea class="form-control" rows="3" placeholder="Comentarios adicionales"></textarea>
+                        </div>
+    
+                        <!-- Botón de Confirmación -->
+                        <button type="submit" class="btn btn-primary w-100">Confirmar Visita</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-primary">LoKee</h5>
+                    <p class="text-muted small">Find your perfect long-term rental</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold">Compañia</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="#" class="text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-decoration-none">Careers</a></li>
+                        <li><a href="#" class="text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold">Support</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="#" class="text-decoration-none">Help Center</a></li>
+                        <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-decoration-none">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold">Subscribe</h6>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-decoration-none"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-light py-3">
+            <div class="container">
+                <p class="text-center text-muted mb-0">&copy; 2025 LoKee. All rights reserved.</p>
+            </div>
+        </div>
+
+        <script>
+           // Obtener el ID de la propiedad desde la URL
+const urlParams = new URLSearchParams(window.location.search);
+const propertyId = urlParams.get('id');
+
+// Cargar datos del archivo JSON
+fetch('/Frontend/data.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(properties => {
+        const property = properties.find(p => p.id == propertyId);
+
+        if (property) {
+            // Actualizar el contenido de la página con los datos de la propiedad
+            document.querySelector('.h2.fw-bold').textContent = property.title;
+            document.querySelector('.text-muted i.fa-location-dot').nextSibling.textContent = ` ${property.location}`;
+            document.querySelector('.h4.text-primary').textContent = property.price;
+            document.querySelector('.fa-bed + div').textContent = `${property.bedrooms} habitaciones`;
+            document.querySelector('.fa-bath + div').textContent = `${property.bathrooms} baños`;
+            document.querySelector('.fa-ruler-combined + div').textContent = property.area;
+            document.querySelector('p.text-muted').textContent = property.description;
+
+            // Actualizar las imágenes del carrusel principal
+            const carouselInner = document.querySelector('.carousel-inner');
+            carouselInner.innerHTML = ''; // Limpiar imágenes existentes
+            property.images.forEach((image, index) => {
+                const activeClass = index === 0 ? 'active' : '';
+                carouselInner.innerHTML += `
+                    <div class="carousel-item ${activeClass}">
+                        <img src="${image}" class="d-block w-100" alt="Property Image">
+                    </div>
+                `;
+            });
+
+            // Actualizar las miniaturas
+            const thumbnails = document.querySelector('.d-flex.gap-2.mt-3');
+            thumbnails.innerHTML = ''; // Limpiar miniaturas existentes
+            property.thumbnails.forEach((thumbnail, index) => {
+                thumbnails.innerHTML += `
+                    <img src="${thumbnail}" class="img-thumbnail rounded" style="cursor: pointer;" 
+                         data-bs-target="#propertyCarousel" data-bs-slide-to="${index}">
+                `;
+            });
+
+            // Actualizar el iframe del modelo 3D
+            const model3DFrame = document.querySelector('.floor-plan-iframe iframe');
+if (model3DFrame && property.model3D) {
+    model3DFrame.src = property.model3D;
+} else {
+    console.error('Propiedad no encontrada');
+}   
+
+
+// Actualizar el iframe del Tour Virtual (VR)
+const vrTourFrame = document.querySelector('.vr-tour-iframe iframe');
+            if (vrTourFrame && property.TourVR) {
+                vrTourFrame.src = property.TourVR;
+            } else {
+                console.error('Tour Virtual no encontrado');
+            }
+        } else {
+            console.error('Propiedad no encontrada');
+        }
+
+    })
+    .catch(error => console.error('Error al cargar los datos:', error));
+        </script>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(item => {
+            new bootstrap.Tooltip(item)
+        })
+    </script>
+    <script src="/Frontend/Js/Info.js"></script>
+</body>
+</html>

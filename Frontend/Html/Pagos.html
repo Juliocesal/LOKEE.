@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagos e Ingresos - Propietario</title>
+  <!-- Enlazamos los archivos CSS y JS -->
+  <link rel="stylesheet" href="/Frontend/Css/pagos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+  <!-- Encabezado de la página -->
+  <header class="header">
+    <div class="container">
+      <h1 class="header-title">Pagos e Ingresos</h1>
+      <p class="header-subtitle">Resumen financiero de tus propiedades</p>
+    </div>
+  </header>
+
+  <!-- Contenedor principal -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Resumen financiero -->
+      <section class="summary-section">
+        <h2 class="section-title">Resumen Financiero</h2>
+        <div class="summary-cards">
+          <div class="summary-card">
+            <p class="card-label">Ingresos Totales</p>
+            <p class="card-value">$12,500.00</p>
+          </div>
+          <div class="summary-card">
+            <p class="card-label">Pagos Pendientes</p>
+            <p class="card-value">$1,200.00</p>
+          </div>
+          <div class="summary-card">
+            <p class="card-label">Comisiones</p>
+            <p class="card-value">$300.00</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detalles de transacciones -->
+      <section class="transactions-section">
+        <h2 class="section-title">Historial de Transacciones</h2>
+        <div class="transactions-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Monto</th>
+                <th>Estatus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023-10-15</td>
+                <td>Renta de propiedad #1234</td>
+                <td>$2,500.00</td>
+                <td class="status-completed">Completado</td>
+              </tr>
+              <tr>
+                <td>2023-10-10</td>
+                <td>Comisión por servicio</td>
+                <td>$150.00</td>
+                <td class="status-pending">Pendiente</td>
+              </tr>
+              <tr>
+                <td>2023-10-05</td>
+                <td>Renta de propiedad #5678</td>
+                <td>$3,200.00</td>
+                <td class="status-completed">Completado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Formulario de registro de pagos con campos adicionales -->
+<form id="paymentForm" class="payment-form">
+    <div class="form-group">
+      <label for="property">Propiedad:</label>
+      <select id="property" name="property" required>
+        <option value="">Selecciona una propiedad</option>
+        <option value="prop1">Propiedad #1234</option>
+        <option value="prop2">Propiedad #5678</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="tenantName">Nombre del inquilino:</label>
+      <input type="text" id="tenantName" name="tenantName" placeholder="Ingresa el nombre del inquilino" required>
+    </div>
+    <div class="form-group">
+      <label for="tenantEmail">Correo electrónico del inquilino:</label>
+      <input type="email" id="tenantEmail" name="tenantEmail" placeholder="Ingresa el correo del inquilino" required>
+    </div>
+    <div class="form-group">
+      <label for="amount">Monto:</label>
+      <input type="number" id="amount" name="amount" placeholder="Ingresa el monto" required>
+    </div>
+    <div class="form-group">
+      <label for="date">Fecha:</label>
+      <input type="date" id="date" name="date" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Descripción:</label>
+      <textarea id="description" name="description" placeholder="Añade una descripción"></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Registrar Pago y Generar Contrato</button>
+  </form>
+  
+  <!-- Botón para descargar el contrato -->
+  <div id="contractDownload" style="display: none;">
+    <button id="downloadContractBtn" class="btn-submit">Descargar Contrato</button>
+  </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Tu Aplicación de Rentas. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Enlazamos el archivo JavaScript -->
+  <script src="/Frontend/Js/pagos.js"></script>
+</body>
+</html>

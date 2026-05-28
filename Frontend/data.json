@@ -1,0 +1,132 @@
+[
+    {
+        "id": 1,
+        "title": "Casa moderna1",
+        "location": "Tijuana, B.C.",
+        "price": "$5,500",
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "area": "65 m²",
+        "description": "Descubre esta acogedora casa de 2 habitaciones y 1 baño, perfectamente diseñada para ofrecer comodidad y estilo.",
+        "amenities": ["Wifi", "Estacionamiento", "Gym cerca"],
+        "images": [
+            "/Frontend/Images/casa1/Casa1.png",
+            "/Frontend/Images/casa1/casa1_cocina.png",
+            "/Frontend/Images/casa1/casa1_cocina1.png"
+        ],
+
+
+        "thumbnails": [
+            "/Frontend/Images/casa1/previews/Casa1.png",
+            "/Frontend/Images/casa1/previews/casa1_cocina.png",
+            "/Frontend/Images/casa1/previews/casa1_cocina1.png"
+        ],
+
+        "model3D": "/Frontend/Html/3dmodel.html",
+        "TourVR": "/Frontend/Html/VR.html"
+    },
+    {
+        "id": 2,
+        "title": "Departamento en el centro",
+        "location": "Tijuana, B.C.",
+        "price": "$8,000",
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "area": "90 m²",
+        "description": "Moderno departamento en el centro de tijuana, ideal para profesionales.",
+        "amenities": ["Wifi", "Estacionamiento", "Vista panorámica"],
+        "images": [
+            "/Frontend/Images/FrontHouse.png",
+            "/Frontend/Images/insidehouse.png",
+            "/Frontend/Images/insidehouse2.png"
+        ],
+        "thumbnails": [
+            
+            "/Frontend/Images/ims/FrontHouse.png",
+            "/Frontend/Images/ims/insidehouse.png",
+            "/Frontend/Images/ims/insidehouse2.png"
+        ],
+
+        "model3D": "/Frontend/Html/3dmodel1.html",
+        "TourVR": "/Frontend/Html/VR copy.html"
+
+    },
+    {
+        "id": 3,
+        "title": "Casa Luxury en tijuana",
+        "location": "Tijuana, B.C.",
+        "price": "$15,000",
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "area": "65 m²",
+        "description": "Descubre esta encantadora casa de 5 habitaciones y 2 baños, donde el confort se encuentra con el estilo. Cada rincón ha sido cuidadosamente diseñado para brindarte un espacio amplio, cálido y funcional, perfecto para disfrutar con tu familia o recibir a tus amigos. Desde sus luminosos interiores hasta sus detalles acogedores, esta casa tiene todo lo que necesitas para vivir con plenitud.",
+        "amenities": ["Wifi", "Estacionamiento", "Gym cerca"],
+        "images": [
+            "/Frontend/Images/casa3/Casa3.png",
+            "/Frontend/Images/casa3/casa3sala.png",
+            "/Frontend/Images/casa3/casa3cocina.png"
+        ],
+
+
+        "thumbnails": [
+            "/Frontend/Images/casa3/preview/Casa3.png",
+            "/Frontend/Images/casa3/preview/casa3sala.png",
+            "/Frontend/Images/casa3/preview/casa3cocina.png"
+        ],
+
+        "model3D": "/Frontend/Html/3dmodel2.html",
+        "TourVR": "/Frontend/Html/VR copy.html"
+    },
+    {
+        "id": 4,
+        "title": "Casa moderna1",
+        "location": "Tijuana, B.C.",
+        "price": "$5,500",
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "area": "65 m²",
+        "description": "Descubre esta acogedora casa de 2 habitaciones y 1 baño, perfectamente diseñada para ofrecer comodidad y estilo.",
+        "amenities": ["Wifi", "Estacionamiento", "Gym cerca"],
+        "images": [
+            "/Frontend/Images/casa1/Casa1.png",
+            "/Frontend/Images/casa1/casa1_cocina.png",
+            "/Frontend/Images/casa1/casa1_cocina1.png"
+        ],
+
+
+        "thumbnails": [
+            "/Frontend/Images/casa1/previews/Casa1.png",
+            "/Frontend/Images/casa1/previews/casa1_cocina.png",
+            "/Frontend/Images/casa1/previews/casa1_cocina1.png"
+        ],
+
+        "model3D": "/Frontend/Html/3dmodel.html",
+        "TourVR": "/Frontend/Html/VR.html"
+    },
+    {
+        "id": 5,
+        "title": "Casa moderna1",
+        "location": "Tijuana, B.C.",
+        "price": "$5,500",
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "area": "65 m²",
+        "description": "Descubre esta acogedora casa de 2 habitaciones y 1 baño, perfectamente diseñada para ofrecer comodidad y estilo.",
+        "amenities": ["Wifi", "Estacionamiento", "Gym cerca"],
+        "images": [
+            "/Frontend/Images/casa1/Casa1.png",
+            "/Frontend/Images/casa1/casa1_cocina.png",
+            "/Frontend/Images/casa1/casa1_cocina1.png"
+        ],
+
+
+        "thumbnails": [
+            "/Frontend/Images/casa1/previews/Casa1.png",
+            "/Frontend/Images/casa1/previews/casa1_cocina.png",
+            "/Frontend/Images/casa1/previews/casa1_cocina1.png"
+        ],
+
+        "model3D": "/Frontend/Html/3dmodel.html",
+        "TourVR": "/Frontend/Html/VR.html"
+    }
+]

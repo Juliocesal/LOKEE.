@@ -1,0 +1,49 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+canvas {
+  display: block;
+}
+
+/* Contenedor de botones */
+.button-container {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+  justify-content: center; /* Centrar horizontalmente */
+  margin-top: 20px; /* Espacio desde la parte superior */
+}
+
+/* Estilo base de los botones */
+button {
+  background-color: #007bff; /* Azul primario */
+  color: white; /* Texto blanco */
+  border: none; /* Sin bordes */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto suave */
+}
+
+/* Hover (al pasar el mouse) */
+button:hover {
+  background-color: #0056b3; /* Azul más oscuro */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Focus (al hacer clic o tabular) */
+button:focus {
+  outline: none; /* Elimina el borde predeterminado */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Sombra azul */
+}
+
+/* Botón deshabilitado (opcional) */
+button:disabled {
+  background-color: #cccccc; /* Gris claro */
+  cursor: not-allowed; /* Cursor de no permitido */
+}

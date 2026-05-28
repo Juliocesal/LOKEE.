@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Peticiones de Visita</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Gestión de Rentas</h1>
+        <nav>
+            <button id="menu-toggle">☰ Menú</button>
+        </nav>
+    </header>
+
+    <!-- Contenedor principal -->
+    <main>
+        <!-- Sección de Propiedades Disponibles -->
+        <section id="properties-section">
+            <h2>Propiedades Disponibles</h2>
+            <div class="properties-grid" id="properties-grid">
+                <!-- Ejemplo de propiedad -->
+                <div class="property-card">
+                    <img src="/Frontend/Images/george-eastman-house-70173_1280.jpg" alt="Casa Moderna">
+                    <h3>Casa Moderna</h3>
+                    <p>Precio: $8,000 | 3 Habitaciones | 2 Baños</p>
+                    <button class="request-visit-btn" data-property-id="1">Solicitar Visita</button>
+                    <button class="chat-btn" data-owner-id="1">Chat con Propietario</button>
+                </div>
+                <!-- Más propiedades se agregarán dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Modal de Solicitud de Visita -->
+        <div id="visit-request-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Solicitar Visita</h2>
+                <form id="visit-request-form">
+                    <label for="name">Nombre Completo:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="date">Fecha Preferida:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="time">Hora Preferida:</label>
+                    <input type="time" id="time" name="time" required>
+
+                    <label for="message">Mensaje Adicional:</label>
+                    <textarea id="message" name="message"></textarea>
+
+                    <button type="submit">Enviar Solicitud</button>
+                    <button type="button" id="close-modal">Cancelar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Panel de Gestión de Peticiones (Para el Propietario) -->
+        <section id="owner-panel" class="hidden">
+            <h2>Gestión de Peticiones</h2>
+            <ul id="requests-list">
+                <!-- Ejemplo de solicitud -->
+                <li class="request-item">
+                    <strong>Juan Pérez</strong> - Casa Moderna
+                    <p>Fecha: 2023-11-15 | Hora: 10:00 AM</p>
+                    <button class="accept-btn">Aceptar</button>
+                    <button class="reject-btn">Rechazar</button>
+                    <button class="chat-btn">Chat</button>
+                </li>
+                <!-- Más solicitudes se agregarán dinámicamente -->
+            </ul>
+        </section>
+
+        <!-- Chat Modal -->
+        <div id="chat-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Chat con Propietario</h2>
+                <div id="chat-box" class="chat-box">
+                    <!-- Mensajes se agregarán dinámicamente -->
+                </div>
+                <form id="chat-form">
+                    <input type="text" id="chat-message" placeholder="Escribe un mensaje..." required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2023 Gestión de Rentas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LoKee - Explorar propiedades</title>
+        <link rel="stylesheet" href="/Frontend/Css/styles.css">
+        
+        <!-- Mapbox -->
+        <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-messaging.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="manifest" href="/Frontend/manifest.json">
+        <!-- Enlaces para Swiper.js -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    </head>
+<body>
+    <!-- Menú Hamburguesa -->
+    <nav class="side-menu">
+        <div class="menu-header">
+            <img src="profile.jpg" alt="Perfil" class="user-avatar">
+            <div class="user-info">
+                <h3>Juan Pérez</h3>
+                <p>usuario@ejemplo.com</p>
+            </div>
+        </div>
+        
+        <div class="menu-sections">
+            <!-- Sección Principal -->
+            <div class="menu-section">
+                <h4 class="section-title">Demo</h4>
+                <a id="mi-perfil" class="menu-item">
+                    <span class="material-icons-round">person</span>
+                    Landing
+                </a>
+                <a class="menu-item">
+                    <span class="material-icons-round">notifications</span>
+                    Notificaciones
+                    <span class="badge">3</span>
+                </a>
+            </div>
+
+            <!-- Sección de Rentas -->
+            <div  class="menu-section">
+                <h4 class="section-title">Mis Rentas</h4>
+                <a id="reserva" class="menu-item">
+                    <span class="material-icons-round">date_range</span>
+                    Reservas Activas
+                </a>
+                <a class="menu-item">
+                    <span class="material-icons-round">history</span>
+                    Historial
+                </a>
+            </div>
+
+            <!-- Sección de Propietario -->
+            <div class="menu-section owner-section" style="display: none;">
+                <h4 class="section-title">Herramientas Propietario</h4>
+                <a id="mis-propiedades" class="menu-item">
+                    <span class="material-icons-round">business</span>
+                    Mis Propiedades
+                </a>
+                <a id="mis-pagos" class="menu-item">
+                    <span class="material-icons-round">payments</span>
+                    Pagos e Ingresos
+                </a>
+            </div>
+
+            <!-- Sección de Configuración -->
+            <div class="menu-section">
+                <a class="menu-item">
+                    <span class="material-icons-round">settings</span>
+                    Configuración
+                </a>
+                <a id="cerrar-sesion" class="menu-item">
+                    <span class="material-icons-round">logout</span>
+                    Ir al inicio
+                </a>
+            </div>
+        </div>
+
+        
+    </nav>
+
+    <div class="backdrop"></div>
+
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+        <!-- Header Superior -->
+        <header class="main-header">
+            <!-- Botón de menú lateral -->
+            <button class="menu-toggle" type="button" aria-label="Abrir menu">
+                <span class="material-icons-round">menu</span>
+            </button>
+    
+            <!-- Logo y título -->
+            <div class="logo-title-container">
+                <img src="/Frontend/Images/LogoS.png" alt="Logo de Lokee" class="logo" />
+                <div class="header-title">LOKEE</div>
+            </div>
+    
+            <!-- Controles del mapa -->
+            <div class="map-controls">
+                <button id="installButton" class="install-button" type="button">
+                    <span class="material-icons-round">download</span>
+                    Instalar App
+                </button>
+            </div>
+    
+            <!-- Información de ubicación (opcional) -->
+            <div class="location-info"></div>
+        </header>
+    </div>
+
+        <div id="map" class="map-container"></div>
+<!-- Botón para activar/desactivar la sección lateral -->
+
+
+<!-- Sección lateral derecha -->
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <h3>Viviendas Disponibles</h3>
+        <button id="closeSidebar" class="close-sidebar-button" type="button" aria-label="Cerrar lista">
+            <span class="material-icons-round">close</span>
+        </button>
+    </div>
+    <div id="propertyList" class="property-list">
+        <!-- Aquí se cargarán dinámicamente las viviendas -->
+    </div>
+</div>
+
+<button id="toggleSidebar" class="toggle-sidebar-button">
+    Mostrar lista  <i class="fas fa-list"></i> <!-- Ícono de lista -->
+</button>
+
+<button id="topViewButton" class="view-toggle-button">
+    <i class="fas fa-th"></i> <!-- Ícono de flecha hacia abajo (vista desde arriba) -->
+</button>
+
+<!-- Botón para la vista en diagonal -->
+<button id="diagonalViewButton" class="view-toggle-buttons">
+    <i class="fas fa-th"></i> <!-- Ícono de flecha diagonal (vista en diagonal) -->
+</button>
+        <!-- Filtros -->
+        <div class="filters-container">
+
+            
+            <!-- Campo de ubicación -->
+            <div class="location-search">
+                <span class="material-icons-round">location_on</span>
+               
+                <!-- Elimina este input -->
+                <!-- <input type="text" placeholder="¿Dónde buscas?" id="locationInput"> -->
+                
+                <!-- Deja solo el contenedor donde se generará el input -->
+                <div class="autocomplete"></div>
+                <button class="map-control" id="locateMe" type="button" aria-label="Usar mi ubicacion">
+                    <span class="material-icons-round">my_location</span>
+               </button>
+            </div>
+            <!-- Selector horizontal de tipos -->
+            <div class="type-scroller">
+                <div class="type-chip" data-type="casa"><i class="fas fa-home"></i> Casa</div>
+                <div class="type-chip" data-type="departamento"><i class="fas fa-building"></i> Departamento</div>
+                <div class="type-chip" data-type="habitacion"><i class="fas fa-bed"></i> Habitación</div>
+                <div class="type-chip" data-type="local"><i class="fas fa-store"></i> Local</div>
+                <div class="type-chip" data-type="oficina"><i class="fas fa-briefcase"></i> Oficina</div>
+                <div class="type-chip" data-type="eventos"><i class="fas fa-calendar-alt"></i> Eventos</div>
+                <div class="type-chip" data-type="coworking"><i class="fas fa-users"></i> Coworking</div>
+              </div>
+
+            
+            <!-- Botón filtros avanzados -->
+            <button class="advanced-filter-button" id="openAdvancedFilters" type="button">
+                <span class="material-icons-round">tune</span>
+                Filtros
+            </button>
+        </div>
+
+        <!-- Modal de Filtros Avanzados -->
+        <div class="advanced-filters-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Filtros Avanzados</h3>
+                    <button class="close-modal">
+                        <span class="material-icons-round">close</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <!-- Rango de Precios -->
+                    <div class="filter-section">
+                        <h4>Rango de Precios</h4>
+                        <div class="price-range">
+                            <input type="range" min="0" max="10000" step="100" id="priceRange">
+                            <div class="price-display">
+                                <span id="minPrice">$0</span> - <span id="maxPrice">$10,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Capacidad y Espacios -->
+                    <div class="filter-section">
+                        <h4>Capacidad de personas</h4>
+                        <div class="counter-control">
+                            <button class="counter-btn minus">-</button>
+                            <input type="number" min="1" max="20" value="2" class="counter-input">
+                            <button class="counter-btn plus">+</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Amenidades -->
+                    <div class="filter-section">
+                        <h4>Servicios</h4>
+                        <div class="amenities-grid">
+                            <div class="amenity-item" data-amenity="wifi">
+                                <span class="material-icons-round">wifi</span>
+                                WiFi
+                            </div>
+                            <div class="amenity-item" data-amenity="parking">
+                                <span class="material-icons-round">local_parking</span>
+                                Estacionamiento
+                            </div>
+                            <!-- Más amenidades... -->
+                        </div>
+                    </div>
+                    
+                    <!-- Reglas del Lugar -->
+                    <div class="filter-section">
+                        <h4>Reglas</h4>
+                        <div class="switch-container">
+                            <label>
+                                <input type="checkbox" class="switch-input">
+                                <span class="switch-slider"></span>
+                                Permitir mascotas
+                            </label>
+                            <!-- Más reglas... -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="apply-filters">Aplicar Filtros</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // La demo del portafolio entra directo, sin inicio de sesion.
+    const userData = localStorage.getItem('userData') || JSON.stringify({
+        nombre: 'Demo LoKee',
+        email: 'portafolio@lokee.demo',
+        rol: 'propietario',
+        avatarUrl: '/Frontend/Images/LogoS.png'
+    });
+    if (userData) {
+        try {
+            const usuario = JSON.parse(userData);
+
+            // Cargar la interfaz normalmente
+            document.querySelector('.user-avatar').src = usuario.avatarUrl || 'profile.jpg';
+            document.querySelector('.user-info h3').textContent = usuario.nombre || 'Nombre no disponible';
+            document.querySelector('.user-info p').textContent = usuario.email || 'Correo no disponible';
+
+            // Verificar el rol del usuario
+            const ownerSection = document.querySelector('.menu-section.owner-section');
+
+            if (usuario && usuario.rol) {
+                if (usuario.rol === 'propietario') {
+                    // Mostrar la sección de Herramientas Propietario
+                    ownerSection.style.display = 'block';
+                } else if (usuario.rol === 'usuario') {
+                    // Ocultar la sección de Herramientas Propietario
+                    ownerSection.style.display = 'none';
+                }
+            } else {
+                console.error('El campo "rol" no está definido en los datos del usuario.');
+                ownerSection.style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Error al cargar los datos de demo:', error);
+        }
+    } else {
+        // Si no hay datos de usuario, redirigir al login
+       // alert('No has iniciado sesión.');
+       // La demo se queda en esta pagina aunque no haya sesion.
+    }
+});
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleccionar el botón de cerrar sesión
+        const botonCerrarSesion = document.getElementById('cerrar-sesion');
+
+        // Agregar un evento de clic al botón
+        botonCerrarSesion.addEventListener('click', (event) => {
+            event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+
+            // Limpiar los datos de sesión en localStorage
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('userData');
+
+            // Redirigir al usuario a la página de inicio de sesión
+            window.location.href = '/Frontend/landing.html';
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleccionar el botón de cerrar sesión
+        const botonperfil = document.getElementById('mi-perfil');
+
+        // Agregar un evento de clic al botón
+        botonperfil.addEventListener('click', (event) => {
+            // Redirigir al usuario a la página de inicio de sesión
+            window.location.href = '/Frontend/landing.html';
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleccionar el botón de cerrar sesión
+        const botonperfil = document.getElementById('mis-propiedades');
+
+        // Agregar un evento de clic al botón
+        botonperfil.addEventListener('click', (event) => {
+            // Redirigir al usuario a la página de inicio de sesión
+            window.location.href = '/Frontend/Html/properties.html';
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleccionar el botón de cerrar sesión
+        const botonperfil = document.getElementById('mis-pagos');
+
+        // Agregar un evento de clic al botón
+        botonperfil.addEventListener('click', (event) => {
+            // Redirigir al usuario a la página de inicio de sesión
+            window.location.href = '/Frontend/Html/Pagos.html';
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleccionar el botón de cerrar sesión
+        const botonreserv = document.getElementById('reserva');
+
+        // Agregar un evento de clic al botón
+        botonreserv.addEventListener('click', (event) => {
+            // Redirigir al usuario a la página de inicio de sesión
+            window.location.href = '/Frontend/Html/Reservas.html';
+        });
+    });
+    </script>
+
+    <script src="/Frontend/Js/app.js"></script>
+</body>
+</html>

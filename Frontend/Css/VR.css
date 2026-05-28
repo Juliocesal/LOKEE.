@@ -1,0 +1,61 @@
+/* Estilos para panel de navegación */
+#panorama {
+    width: 600px;
+    height: 400px;
+}
+
+.nav-buttons {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Estilo base de los botones */
+.nav-buttons button {
+    padding: 14px 24px;
+    background: #F8F9FA; /* Blanco nuclear */
+    border: 1px solid #DEE2E6; /* Gris claro */
+    border-radius: 8px;
+    color: #212529; /* Negro profundo */
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
+    text-transform: capitalize;
+}
+
+/* Estado hover */
+.nav-buttons button:hover {
+    background: #E9ECEF;
+    border-color: #CED4DA;
+}
+
+/* Estado activo */
+.nav-buttons button.active {
+    background: #2e72c4; /* Turquesa moderno */
+    border-color: #2e5ec4;
+    color: white;
+    font-weight: 600;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-buttons {
+        right: 20px;
+        gap: 8px;
+    }
+    
+    .nav-buttons button {
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+}
+
+    

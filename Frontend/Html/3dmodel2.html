@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three.js: Carga de OBJ con MTL</title>
+  <link rel="stylesheet" href="/Frontend/Css/3dmodel2.css" />
+</head>
+<body>
+  <!-- Botones para cargar diferentes modelos -->
+  <button onclick="loadModel('base')">Planta Base</button>
+<button onclick="loadModel('casa1')">Planta 1</button>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/examples/jsm/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="/Frontend/Js/main2.js"></script>
+</body>
+</html>

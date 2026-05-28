@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Propiedad</title>
+    <link rel="stylesheet" href="/Frontend/Css/properties.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <header class="form-header">
+            <h1>Publica tu Propiedad</h1>
+            <p>Completa el formulario para listar tu propiedad. Todos los campos son obligatorios, excepto los marcados como opcionales.</p>
+        </header>
+
+        <!-- Formulario principal -->
+        <form id="property-form" class="property-form">
+            <!-- Campo oculto para el ID del propietario -->
+            <input type="hidden" id="owner-id" name="owner_id">
+
+            <!-- Paso 1: Información General -->
+            <section class="form-section">
+                <h2 class="section-title">1. Información General</h2>
+                <div class="form-group">
+                    <label for="property-type">Tipo de Propiedad</label>
+                    <select id="property-type" name="type" required>
+                        <option value="">Selecciona tipo de propiedad</option>
+                        <option value="casa">Casa</option>
+                        <option value="departamento">Departamento</option>
+                        <option value="local">Local Comercial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="title">Título de la Propiedad</label>
+                    <input type="text" id="title" name="title" placeholder="Ejemplo: Departamento Acogedor" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Dirección Completa</label>
+                    <input type="text" id="address" name="address" placeholder="Ejemplo: 123 Calle Principal, Ciudad" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción Detallada</label>
+                    <textarea id="description" name="description" placeholder="Describe las características principales de la propiedad" required></textarea>
+                </div>
+            </section>
+
+            <!-- Paso 2: Características -->
+            <section class="form-section">
+                <h2 class="section-title">2. Características Principales</h2>
+                <div class="features-inputs">
+                    <div class="feature-item">
+                        <label for="bedrooms">Habitaciones</label>
+                        <input type="number" id="bedrooms" name="bedrooms" placeholder="Ejemplo: 2" required>
+                    </div>
+                    <div class="feature-item">
+                        <label for="bathrooms">Baños</label>
+                        <input type="number" id="bathrooms" name="bathrooms" placeholder="Ejemplo: 1" required>
+                    </div>
+                    <div class="feature-item">
+                        <label for="garage">Garaje</label>
+                        <input type="checkbox" id="garage" name="garage">
+                    </div>
+                    <div class="feature-item">
+                        <label for="area">Área (m²)</label>
+                        <input type="number" id="area" name="area" placeholder="Ejemplo: 80" required>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Paso 3: Amenidades y Políticas -->
+            <section class="form-section">
+                <h2 class="section-title">3. Amenidades y Políticas</h2>
+                <div class="form-group">
+                    <label for="amenities">Amenidades</label>
+                    <input type="text" id="amenities" name="amenities" placeholder="Ejemplo: Wi-Fi, Aire Acondicionado, Balcón" required>
+                </div>
+                <div class="form-group">
+                    <label for="floorplan">Plano de la Propiedad (opcional)</label>
+                    <input type="text" id="floorplan" name="floorplan" placeholder="URL del plano">
+                </div>
+                <div class="form-group">
+                    <label for="rental-policies">Políticas de Renta</label>
+                    <textarea id="rental-policies" name="rental_policies" placeholder="Ejemplo: No se permiten mascotas. Check-in después de las 3 PM." required></textarea>
+                </div>
+            </section>
+
+            <!-- Paso 4: Precio y Ubicación -->
+            <section class="form-section">
+                <h2 class="section-title">4. Precio y Ubicación</h2>
+                <div class="form-group">
+                    <label for="price">Precio</label>
+                    <input type="number" id="price" name="price" placeholder="Ejemplo: 1500" required>
+                </div>
+                <div class="form-group">
+                    <label>Ubicación en el Mapa</label>
+                    <div id="map" class="map-container"></div>
+                </div>
+            </section>
+
+            <!-- Paso 5: Imagen Principal -->
+            <section class="form-section">
+                <h2 class="section-title">5. Imagen Principal</h2>
+                <div class="photo-section">
+                    <input type="file" id="photos" name="imageUrl" accept="image/*">
+                    <div class="photos-preview"></div>
+                </div>
+            </section>
+
+            <!-- Botón de Envío -->
+            <footer class="form-footer">
+                <button type="submit" class="btn-submit">Publicar Propiedad</button>
+            </footer>
+        </form>
+    </div>
+    <script src="/Frontend/Js/properties.js"></script>
+</body>
+</html>

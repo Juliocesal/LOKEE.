@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario - RentaApp</title>
+    <!-- Enlace a Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/Frontend/Css/profile.css">
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="profile-container">
+        <!-- Encabezado del perfil -->
+        <header class="profile-header">
+            <h1><i class="fa-solid fa-user"></i> Mi Perfil</h1>
+        </header>
+
+        <!-- Sección de información del usuario -->
+        <section class="profile-info">
+            <div class="profile-avatar">
+                <img src="avatar-placeholder.jpg" alt="Avatar de usuario" id="user-avatar">
+                <button id="change-avatar-btn"><i class="fa-solid fa-camera"></i> Cambiar foto</button>
+            </div>
+            <div class="profile-details">
+                <p><strong>Nombre:</strong> <span id="user-name">Juan Pérez</span></p>
+                <p><strong>Email:</strong> <span id="user-email">juan.perez@example.com</span></p>
+                <p><strong>Teléfono:</strong> <span id="user-phone">+52 123 456 7890</span></p>
+            </div>
+        </section>
+
+        <!-- Sección de edición de datos -->
+        <section class="profile-edit">
+            <h2><i class="fa-solid fa-pen-to-square"></i> Editar Información</h2>
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="name"><i class="fa-solid fa-user"></i> Nombre Completo</label>
+                    <input type="text" id="name" name="name" placeholder="Ingresa tu nombre completo">
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fa-solid fa-envelope"></i> Correo Electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label for="phone"><i class="fa-solid fa-phone"></i> Teléfono</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Ingresa tu número de teléfono">
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fa-solid fa-lock"></i> Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Cambia tu contraseña">
+                </div>
+                <button type="submit" class="btn-save"><i class="fa-solid fa-floppy-disk"></i> Guardar Cambios</button>
+            </form>
+        </section>
+
+        <!-- Sección de acciones adicionales -->
+        <section class="profile-actions">
+            <h2><i class="fa-solid fa-gear"></i> Configuración de Cuenta</h2>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-heart"></i> Mis Favoritos</a></li>
+                <li><a href="#"><i class="fa-solid fa-list-check"></i> Mis Reservas</a></li>
+                <li><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> Historial de Pagos</a></li>
+                <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a></li>
+            </ul>
+        </section>
+
+        <script src="/Frontend/Js/profile.js"></script>
+    </div>
+</body>
+</html>
